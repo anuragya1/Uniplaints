@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <form>
+    <label for="name">name:</label>
+    <input type="text" placeholder="enter your name" id="name"><br><br>
+    <label for="email">email:</label>
+    <input type="email" placeholder="enter your email" id="email"><br><br>
+    <label for="password">password:</label>
+    <input type="password" placeholder="enter your password" id="password"><br><br>
+    <input type="button" value="submit" id="submit">
+ </form>
+ <script>
+    const sigin=document.getElementById('submit').addEventListener('click',async()=>{
+        const name=document.getElementById('name').value;
+        const email=document.getElementById('email').value;
+        const password=document.getElementById('password').value;
+        const dataOb={
+            nam:name,
+            ema:email,
+            passw:password
+        }
+        console.log(name+" and "+email+" and "+password);
+        const signIN=await fetch("http://localhost:3000/sign", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataOb),
+      })
+      try{
+        if(signIN.ok){
+        console.log("you are now signed in");
+      }
+      else
+      console.log('an error has occured');
+      }
+      catch(err){
+        console.log("err :",err);
+      }
+      
+    })
+ </script>
+</body>
+</html>
