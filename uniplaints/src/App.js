@@ -6,7 +6,7 @@ import Contact from "./component/Contact";
 import ViewComplaints from "./component/ViewComplaints";
 import UserLogin from "./component/UserLogin";
 import UserSignup from "./component/UserSignup";
-import ChatGPT from "./component/Chatgpt";
+
 
 
 
@@ -22,7 +22,7 @@ export default function App() {
     <Route path="/login" element={<UserLogin/>}></Route>
     
     </Routes>
-   <ChatGPT/>
+ 
     </>
   )
 }
