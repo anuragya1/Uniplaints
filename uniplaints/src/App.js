@@ -6,6 +6,7 @@ import Contact from "./component/Contact";
 import ViewComplaints from "./component/ViewComplaints";
 import UserLogin from "./component/UserLogin";
 import UserSignup from "./component/UserSignup";
+import GetLocation from "./component/GetLocation";
 
 
 
@@ -22,7 +23,7 @@ export default function App() {
     <Route path="/login" element={<UserLogin/>}></Route>
     
     </Routes>
- 
+    
     </>
   )
 }
