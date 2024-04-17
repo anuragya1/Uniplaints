@@ -1,1 +1,0 @@
-mongodb+srv://anuragyadav3160:<password>@uniplaintsdata.r2bylgx.mongodb.net/

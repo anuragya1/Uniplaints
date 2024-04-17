@@ -1,67 +1,96 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function ViewComplaints() {
-  useEffect(()=>{
-    console.log("rendered")
-  })
-  const urlParams = new URLSearchParams(window.location.search);
-  const username = urlParams.get('UserId');
-  const password = urlParams.get('password');
-  const LoginData={
-    userName:username,
-    passwrd:password
-  }
-  console.log(username);
-  console.log(password);
-  const navigate=useNavigate();
-  const getTologin=()=>{
-    navigate('/Login');
-  }
-  
-  const [userData,setUserdata]=useState(null);
-  const[name,setName]=useState('--');
-  const[description,setDescription]=useState('--');
-  const[age,setAge]=useState('--');
-  const[email,setEmail]=useState('--');
-  const[isFetched,setIsFetched]=useState(false);
-    const getUsers = async () => {
-  
-    try {
-      const response = await fetch('http://localhost:3001/viewComplaints',{method:"POST",headers:{"Content-Type":'application/json'},body:JSON.stringify(LoginData)});
-      if (response.ok) {
-      const data =   await response.json();
-      setUserdata(data);
-      if(data!=null)
-      setIsFetched(true);
-      console.log(data)
-        
-      } else {
-        throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
+const Viewcomplaints = (UserCredentials) => {
+  console.log("view complaint active");
+  const [complaints, setComplaints] = useState([]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/viewcomplaints', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(UserCredentials),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setComplaints(data);
+          console.log("fetch user complaints", data);
+        } else {
+          throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
+        }
+      } catch (error) {
+        console.error('Error:', error.message);
       }
-    } catch (error) {
-      console.error('Error:', error.message);
-    }
-    if(isFetched){  
-       setName(userData.name)
-       setDescription(userData.description)
-       setAge(userData.Age)
-       setEmail(userData.email)
-    }
-  };
-    
+    };
+
+    fetchUserData();
+  }, []);
+
   return (
-    <div className=' grid place-content-center'>
-      
-      <p>here are your submitted complaints </p>
-      <h1 className='font-mono font-extrabold'>hello {name?name:"data not fetched yet"} </h1>
-      <p>{email?email:"data not fetched yet"}</p>
-      <p>{age?age:"data not fetched yet"}</p>
-      <p>{description?description:"data not fetched yet"}</p>
-      
-      <button onClick={getTologin} className='content-center bg-blue-700e-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded '>go to login</button>
-      <button onClick={getUsers} className='bg-lime-900 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded '>view complaints</button>
-        
+    <div className="bg-gray-900 min-h-screen text-gray-100">
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex justify-between items-center mb-8"></div>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-8 animate__animated animate__zoomIn">
+          {complaints.length > 0 ? (
+            complaints.map((complaint, index) => (
+              <div key={index} className="bg-gray-700 rounded-lg p-4 mb-4">
+                <h3 className="text-lg font-bold mb-2">{complaint.complaintType}</h3>
+                <p className="text-gray-300">Name: {complaint.name}</p>
+                <p className="text-gray-300">Email: {complaint.email}</p>
+                <p className="text-gray-300">Address: {complaint.address}</p>
+                <p className="text-gray-300">Age: {complaint.age}</p>
+                <p className="text-gray-300">Phone No: {complaint.phoneNo}</p>
+                <p className="text-gray-400">Status: {complaint.isDone?"Resolved":"Not resolved yet"}</p>
+                {complaint.electricityIssue && (
+                  <p className="text-gray-300">Electricity Issue: {complaint.electricityIssue}</p>
+                )}
+                {complaint.waterIssue && (
+                  <div>
+                    <p className="text-gray-300">Water Issue: {complaint.waterIssue}</p>
+                    <p className="text-gray-300">Contamination Level: {complaint.contamination}</p>
+                    {complaint.image && <img src={`data:image/jpeg;base64,${complaint.image}`} alt="Uploaded" />}
+                  </div>
+                )}
+                {complaint.roadIssue && (
+                  <div>
+                    <p className="text-gray-300">Road Issue: {complaint.roadIssue}</p>
+                    <p className="text-gray-300">Location: {complaint.location}</p>
+                    <p className="text-gray-300">Severity: {complaint.severity}</p>
+                    {complaint.image && <img src={`data:image/jpeg;base64,${complaint.image}`} alt="Uploaded" />}
+                  </div>
+                )}
+                {complaint.healthIssue && (
+                  <div>
+                    <p className="text-gray-300">Health Issue: {complaint.healthIssue}</p>
+                    <p className="text-gray-300">Symptoms: {complaint.symptoms}</p>
+                    <p className="text-gray-300">Medical History: {complaint.medicalHistory}</p>
+                    <p className="text-gray-300">Medications: {complaint.medications}</p>
+                    <p className="text-gray-300">Allergies: {complaint.allergies}</p>
+                  </div>
+                )}
+                {complaint.issue && (
+                  <div>
+                    <p className="text-gray-300">Issue: {complaint.issue}</p>
+                    <p className="text-gray-300">Waste Type: {complaint.wasteType}</p>
+                    <p className="text-gray-300">Description: {complaint.description}</p>
+                    <p className="text-gray-300">Date Noticed: {complaint.dateNoticed}</p>
+                    <p className="text-gray-300">Recurring: {complaint.recurring}</p>
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            <p>No complaints submitted yet.</p>
+          )}
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default Viewcomplaints;
