@@ -39,7 +39,7 @@ export default function UserSignup() {
       Username
     </label>
     <input
-     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none "
+     className="shadow  appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none "
       id="username"
       type="text"
       placeholder="Username"
@@ -50,7 +50,7 @@ export default function UserSignup() {
       Email
     </label>
       <input
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none "
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none "
       id="email"
       type="email"
        placeholder="Email"
@@ -61,7 +61,7 @@ export default function UserSignup() {
        Password
        </label>
        <input
-       className="shadow appearance-none border rounded w-full py-2 px-3  mb-3 leading-tight focus:outline-none "
+       className="shadow appearance-none border rounded w-full py-2 px-3  text-black mb-3 leading-tight focus:outline-none "
           id="password"
         type="password"
               placeholder="Password"

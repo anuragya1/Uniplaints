@@ -95,7 +95,7 @@ export default function Form() {
       form = "";
     return (
       <>
-        <h1 style={{ color: "red" }}>{form}</h1>
+        <h1 style={{ color: "white" }}>{form}</h1>
       </>
     )
   }
@@ -175,7 +175,7 @@ export default function Form() {
         {complaintType === 'Roads' && (
           <div>
             <div className="mb-4">
-              <label htmlFor="roadIssue" className="block text-gray-700 font-semibold mb-2">Road Issue:</label>
+              <label htmlFor="roadIssue" className="block text-white font-semibold mb-2">Road Issue:</label>
               <textarea id="roadIssue"
                 className="block w-full bg-gray-100 border text-black border-gray-300 rounded-md px-4 py-2  focus:border-blue-500"
                 placeholder="Describe the road issue"
@@ -184,7 +184,7 @@ export default function Form() {
               ></textarea>
             </div>
             <div className="mb-4">
-              <label htmlFor="location" className="block text-gray-700 font-semibold mb-2">Location:</label>
+              <label htmlFor="location" className="block text-white font-semibold mb-2">Location:</label>
               <input type="text"
                 id="location"
                 className="block w-full bg-gray-100 border text-black border-gray-300 rounded-md px-4 py focus:border-blue-500"
@@ -193,7 +193,7 @@ export default function Form() {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="severity" className="block text-gray-700 font-semibold mb-2">Severity:</label>
+              <label htmlFor="severity" className="block text-white font-semibold mb-2">Severity:</label>
               <select id="severity"
                 className="block w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 text-black  focus:border-blue-500"
                 required
@@ -205,7 +205,7 @@ export default function Form() {
               </select>
             </div>
             <div className="mb-4">
-              <label htmlFor="image" className="block text-gray-700 font-semibold mb-2">Upload Image (Optional):</label>
+              <label htmlFor="image" className="block text-white font-semibold mb-2">Upload Image (Optional):</label>
               <input type="file"
                 id="image"
                 accept="image/*"
@@ -219,7 +219,7 @@ export default function Form() {
         {complaintType === 'Healthcare' && (
           <div>
             <div className="mb-4">
-              <label htmlFor="healthIssue" className="block text-gray-700 font-semibold mb-2">Health Issue:</label>
+              <label htmlFor="healthIssue" className="block text-white font-semibold mb-2">Health Issue:</label>
               <textarea id="healthIssue"
                 className="block w-full bg-gray-100 border text-black border-gray-300 rounded-md px-4 py-2  focus:border-blue-500"
                 placeholder="Describe the health issue"
@@ -228,7 +228,7 @@ export default function Form() {
               ></textarea>
             </div>
             <div className="mb-4">
-              <label htmlFor="symptoms" className="block text-gray-700 font-semibold mb-2">Symptoms:</label>
+              <label htmlFor="symptoms" className="block text-white font-semibold mb-2">Symptoms:</label>
               <textarea id="symptoms"
                 className="block w-full bg-gray-100 border text-black border-gray-300 rounded-md px-4 py-2  focus:border-blue-500"
                 placeholder="Describe any symptoms you are experiencing"
@@ -237,7 +237,7 @@ export default function Form() {
               ></textarea>
             </div>
             <div className="mb-4">
-              <label htmlFor="medicalHistory" className="block  text-gray-700 font-semibold mb-2">Medical History:</label>
+              <label htmlFor="medicalHistory" className="block  text-white font-semibold mb-2">Medical History:</label>
               <textarea id="medicalHistory"
                 className="block w-full bg-gray-100 border text-black border-gray-300 rounded-md px-4 py-2  focus:border-blue-500"
                 placeholder="Briefly describe your medical history including any pre-existing conditions, surgeries, or chronic illnesses"
@@ -245,7 +245,7 @@ export default function Form() {
               ></textarea>
             </div>
             <div className="mb-4">
-              <label htmlFor="medications" className="block text-gray-700 font-semibold mb-2">Current Medications:</label>
+              <label htmlFor="medications" className="block text-white font-semibold mb-2">Current Medications:</label>
               <textarea id="medications"
                 className="block w-full bg-gray-100 border text-black border-gray-300 rounded-md px-4 py-2  focus:border-blue-500"
                 placeholder="List any medications you are currently taking, including dosage and frequency"
@@ -253,7 +253,7 @@ export default function Form() {
               ></textarea>
             </div>
             <div className="mb-4">
-              <label htmlFor="allergies" className="block text-gray-700 font-semibold mb-2">Allergies:</label>
+              <label htmlFor="allergies" className="block text-white font-semibold mb-2">Allergies:</label>
               <textarea id="allergies"
                 className="block w-full bg-gray-100 border text-black border-gray-300 rounded-md px-4 py-2  focus:border-blue-500"
                 placeholder="List any allergies you have, including medications, foods, or other substances"

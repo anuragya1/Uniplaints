@@ -26,7 +26,7 @@ const FormSchema = new mongoose.Schema({
     wasteType: { type: String },
     wasteDescription: { type: String },
     dateNoticed: { type: Date },
-    recurring: { type: Boolean },
+    recurring: String,
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     isDone: Boolean
