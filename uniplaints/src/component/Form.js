@@ -159,15 +159,7 @@ export default function Form() {
                 <option value={"medium level"}>medium level</option>
                 <option value={"high level"}>high level</option>
               </select>
-              <div className='mb-4'>
-                <label htmlFor='image'>Upload image:</label>
-                <input
-                  type='file'
-                  id="image"
-                  accept='image/*'
-                  className="block w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2  focus:border-blue-500"
-                />
-              </div>
+             
             </div>
           </div>
         )}
@@ -204,14 +196,7 @@ export default function Form() {
                 <option value="Severe">Severe</option>
               </select>
             </div>
-            <div className="mb-4">
-              <label htmlFor="image" className="block text-white font-semibold mb-2">Upload Image (Optional):</label>
-              <input type="file"
-                id="image"
-                accept="image/*"
-                className="block w-full bg-gray-100 border text-black border-gray-300 rounded-md px-4 py-2  focus:border-blue-500"
-              />
-            </div>
+           
           </div>
 
         )}

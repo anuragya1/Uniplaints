@@ -33,7 +33,7 @@ export default function Feedback() {
   return (
     <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-screen flex justify-center items-center">
       <div className="bg-gray-800 bg-opacity-50 rounded-lg mt-[-3rem] p-8 w-96">
-        <h2 className="text-white font-bold text-3xl text-center mb-6">Contact Us</h2>
+        <h2 className="text-white font-bold text-3xl text-center mb-6">Feedback</h2>
         <div className="mb-4">
           <label htmlFor="fullName" className="block text-white font-serif mb-1">Full Name:</label>
           <input type="text" id="fullName" className="block w-full bg-gray-200 border border-gray-300 rounded px-4 py-2 focus:outline-none" />
