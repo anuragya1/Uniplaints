@@ -29,6 +29,7 @@ const FormSchema = new mongoose.Schema({
     recurring: String,
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
-    isDone: Boolean
+    isDone: Boolean,
+    isObjected:Boolean
 });
 export const Form = mongoose.model('Form', FormSchema);

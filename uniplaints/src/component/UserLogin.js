@@ -13,39 +13,43 @@ export default function UserLogin() {
     
   const handleLogin = async () => {
     
-
+    
     const loginData = {
       UserId: document.getElementById('UserID').value,
       password: document.getElementById('Password').value
     };
-    
-       
-    console.log(loginData.UserId);
-
-    try {
-      const response = await fetch('http://localhost:3001/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(loginData),
-      });
-
-      if (response.ok) {
-        window.confirm("User confirmed");
-        localStorage.setItem("userId",loginData.UserId);
-        localStorage.setItem("password",loginData.password);
-        console.log(localStorage)
-        navigate('/userpanel');
-      } else {
-        window.confirm("User does not exist. Sign in first.");
-        navigate('/sign');
+    if(loginData.UserId==='exeunip'&&loginData.password==='Executive@123')
+    navigate('/Exepanel');
+    else{
+      try {
+        const response = await fetch('http://localhost:3001/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(loginData),
+        });
+  
+        if (response.ok) {
+          window.confirm("User confirmed");
+          localStorage.setItem("userId",loginData.UserId);
+          localStorage.setItem("password",loginData.password);
+          console.log(localStorage)
+          navigate('/userpanel');
+        } else {
+          let confir=window.confirm("User does not exist. Sign in first.");
+          if(confir)
+          navigate('/sign');
+        else
+         console.log("filler");
+        }
+  
+      } catch (error) {
+        console.error('Error:', error);
       }
-
-    } catch (error) {
-      console.error('Error:', error);
     }
-  };
+    }
+    
 
   return (
     <div className="bg-gradient-to-r from-gray-900 to-teal-500 h-screen flex justify-center items-center">

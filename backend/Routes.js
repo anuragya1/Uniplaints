@@ -75,7 +75,8 @@ router.get('/', async (req, res) => {
       wasteDescription,
       dateNoticed,
       recurring,
-      isDone:false
+      isDone:false,
+      isObjected:false
     });
   
     try {
@@ -94,7 +95,7 @@ router.get('/', async (req, res) => {
   
       const mailOptions = {
         from: 'r2600821@gmail.com',
-        to: 'anurag1086.be22@chitkarauniversity.edu.in',
+        to: 'exeunip4uniplaints@gmail.com',
         subject: 'New Complaint Received',
         text: `
           Name: ${name}\n
@@ -210,7 +211,49 @@ router.get('/', async (req, res) => {
     
   });
   
+  router.post('/notifyUser',async(req,res)=>{
+    console.log(req.body)
+     const link=' http://192.168.135.112:3000/confirmation';
+    try{
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'r2600821@gmail.com',
+          pass: 'llvlgryirojjmkws',
+        },
+      });
+      const notification = {
+        from: 'r2600821@gmail.com',
+        to: req.body.email,
+        subject: 'CONFIRMATION-Mail',
+        text: `Dear User,\n\nWe would like to inform you that your complaint has been marked as Resolved.\nComplaint-type:${req.body.complaintType}\n\nclick this link to confirm that complaint is resolved or not:${link}.\n\nBest regards,\nThe Executive Team From Uniplaints`, 
+      };
+      await transporter.sendMail(notification);
+      console.log(`notification sent to ${req.body.email}`);
+      res.status(200).send('notification sent');
+      
+    }
+    catch(err){
+      console.log('error = ',err)
+      res.status(500).send('internal server error');
+    }
+   })
+   router.get('/viewComp', async (req, res) => {
+   
   
+    try {
+      const Data = await Form.find();
+      
+      if (Data) {
+        res.status(209).json(Data);
+      } else {
+        res.status(402).json({ success: false, error: 'You have not submitted any form yet' });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).json({ success: false, error: 'Failed to fetch data' });
+    }
+  });
  router.post('/login', async(req, res) => {
     const { UserId, password } = req.body;
   
@@ -266,18 +309,27 @@ router.get('/', async (req, res) => {
     }
    
   });
-  router.post('/feedback',async(req,res)=>{
-    try {
-      const {userId,name,email,message}=req.body;
-      
-      const feedbac = new feedback({ userId: userId,name:name, email: email, message:message});
-      await feedbac.save();
-      res.status(201).send({ message: "thank you for give us your valuable feedback" });
+  router.post('/feedback', async (req, res) => {
+    let objection
+    console.log(req.body);
+    try {    if(req.body.IsDone==='false')
+             objection=true;
+      const update = await Form.findOneAndUpdate(
+        { userId: req.body.userId, name:req.body.name, email:req.body.Email, complaintType: req.body.complaintType },
+        {isDone:req.body.IsDone,isObjected:objection},
+        {new:true}
+          
+      );
+       console.log(update)
+      const feedbackData = new feedback({userId: req.body.userId, name:req.body.name, email:req.body.Email, message:req.body.message });
+      await feedbackData.save();
+                              
+      res.status(201).send({ message: "Thank you for giving us your valuable feedback" });
     } catch (err) {
+      console.error(err);
       res.status(500).send({ message: "INTERNAL SERVER ERROR" });
     }
-    
-  })
+  });
 
 export default router;
 

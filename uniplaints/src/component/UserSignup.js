@@ -17,6 +17,7 @@ export default function UserSignup() {
     });
     if(sign.ok){
       console.log("data saved sucessfully");
+        alert("sign in successful directing you to login page")
          navigate('/login')
     }
     else{

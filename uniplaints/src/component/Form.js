@@ -292,9 +292,7 @@ export default function Form() {
           <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded ">Submit</button>
         </div>
         <div>{formSubmitted()}</div>
-        <div className='flex justify-center my-3'>
-          <button onClick={() => navigate(-1)} className="bg-red-400 hover:bg-red-200 text-white font-bold py-2 px-4 rounded ">Previous Page</button>
-        </div>
+        
       </div>
     </div>
   </>
