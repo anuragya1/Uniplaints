@@ -287,7 +287,10 @@ router.get('/', async (req, res) => {
       res.status(500).json({ success: false, error: 'Failed to fetch data' });
     }
   });
+  let reqCount =0;
   router.get('/data' ,async(req,res)=>{
+    reqCount++;
+    console.log(reqCount);
     console.log("Data route active");
     let data={
       total:"",
