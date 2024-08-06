@@ -13,7 +13,7 @@ export default function Confirmation() {
     };
     console.log(feedback);
     try {
-      const feed = await fetch("http://localhost:3001/feedback", {
+      const feed = await fetch("https://backend-mocha-kappa-93.vercel.app//feedback", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
