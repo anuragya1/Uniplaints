@@ -61,7 +61,7 @@ export default function Form() {
 
 
     try {
-      const response = await fetch('https://backend-nuxjddkyg-anurags-projects-dc4e4a37.vercel.app/submit-form', {
+      const response = await fetch('https://backend-hug5hnrsy-anurags-projects-dc4e4a37.vercel.app/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
