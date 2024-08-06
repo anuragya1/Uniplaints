@@ -7,7 +7,7 @@ const ViewComp = ({ filterType }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/viewComp', {
+        const response = await fetch('https://backend-mocha-kappa-93.vercel.app/viewComp', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
