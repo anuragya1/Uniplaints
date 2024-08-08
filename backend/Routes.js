@@ -213,7 +213,7 @@ router.get('/', async (req, res) => {
   
   router.post('/notifyUser',async(req,res)=>{
     console.log(req.body)
-     const link=' https://uniplaints-yl7b.vercel.app/confirmation';
+     const link=' https://uniplaints-yl7b-gqddvxkr4-anurags-projects-dc4e4a37.vercel.app/Confirmation';
     try{
       const transporter = nodemailer.createTransport({
         service: 'gmail',
