@@ -13,7 +13,7 @@ export default function Confirmation() {
     };
     console.log(feedback);
     try {
-      const feed = await fetch("https://backen-kyumgdki0-anurags-projects-dc4e4a37.vercel.app/feedback", {
+      const feed = await fetch("https://backen-c9mc6rw6y-anurags-projects-dc4e4a37.vercel.app/feedback", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
