@@ -8,7 +8,7 @@ const Viewcomplaints = (UserCredentials) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/viewcomplaints', {
+        const response = await fetch('https://backen-kyumgdki0-anurags-projects-dc4e4a37.vercel.app/viewcomplaints', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

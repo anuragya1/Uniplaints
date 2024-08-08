@@ -13,7 +13,7 @@ export default function Confirmation() {
     };
     console.log(feedback);
     try {
-      const feed = await fetch("http://localhost:3001/feedback", {
+      const feed = await fetch("https://backen-kyumgdki0-anurags-projects-dc4e4a37.vercel.app/feedback", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
