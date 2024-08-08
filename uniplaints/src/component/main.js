@@ -12,7 +12,7 @@ const LandingPage = () => {
   const [TotalcompResolved, setTotalcompResolved] = useState(null);
   const getData = async () => {
     try {
-      let response = await fetch('https://backen-kyumgdki0-anurags-projects-dc4e4a37.vercel.app/Data');
+      let response = await fetch('https://backen-c9mc6rw6y-anurags-projects-dc4e4a37.vercel.app/Data');
       if (response.ok) {
         const complaint = await response.json();
         setTotalComplaints(complaint.total);
