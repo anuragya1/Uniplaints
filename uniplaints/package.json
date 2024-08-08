@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy": "https://backen-c9mc6rw6y-anurags-projects-dc4e4a37.vercel.app"
   },
   "eslintConfig": {
     "extends": [
