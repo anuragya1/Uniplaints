@@ -7,7 +7,7 @@ const ViewComp = ({ filterType }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('https://backen-c9mc6rw6y-anurags-projects-dc4e4a37.vercel.app/viewComp', {
+        const response = await fetch('https://backend-9o9cb0adn-anurags-projects-dc4e4a37.vercel.app/viewComp', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const ViewComp = ({ filterType }) => {
     console.log(notify);
     const not = async () => {
       try {
-        const response = await fetch('https://backend-mocha-kappa-93.vercel.app/notifyUser', {
+        const response = await fetch('https://backend-9o9cb0adn-anurags-projects-dc4e4a37.vercel.app/notifyUser', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
