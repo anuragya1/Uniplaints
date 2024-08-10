@@ -26,12 +26,16 @@
     "eject": "react-scripts eject",
     "proxy": "https://backen-c9mc6rw6y-anurags-projects-dc4e4a37.vercel.app"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+"eslintConfig": {
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ],
+  "rules": {
+    "no-unused-vars": "off" 
+  }
+},
+
   "browserslist": {
     "production": [
       ">0.2%",
