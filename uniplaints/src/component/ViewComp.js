@@ -7,7 +7,7 @@ const ViewComp = ({ filterType }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('https://backend-9o9cb0adn-anurags-projects-dc4e4a37.vercel.app/viewComp', {
+        const response = await fetch('https://backend-epuhye6ms-anurags-projects-dc4e4a37.vercel.app/viewComp', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
