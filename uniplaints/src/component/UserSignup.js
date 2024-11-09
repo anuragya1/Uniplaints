@@ -9,7 +9,7 @@ export default function UserSignup() {
       password:document.getElementById('password').value
     }
     try{
-      const sign=await fetch('https://backend-9o9cb0adn-anurags-projects-dc4e4a37.vercel.app/sign',{method:'POST',
+      const sign=await fetch('https://backend-epuhye6ms-anurags-projects-dc4e4a37.vercel.app/sign',{method:'POST',
       headers:{
         'Content-Type': 'application/json',
       },
