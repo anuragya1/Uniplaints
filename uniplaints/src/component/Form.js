@@ -24,8 +24,7 @@ export default function Form() {
       
       complaintType: complaintType,
     };
-    
-    // Add the subparts based on the complaint type
+  
     if (complaintType === 'Electricity') {
       formData.electricityIssue = document.getElementById('electricityIssue').value;
     }
@@ -61,7 +60,7 @@ export default function Form() {
 
 
     try {
-      const response = await fetch('https://backend-9o9cb0adn-anurags-projects-dc4e4a37.vercel.app/submit-form', {
+      const response = await fetch('https://backend-epuhye6ms-anurags-projects-dc4e4a37.vercel.app/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +146,7 @@ export default function Form() {
             <textarea id="electricityIssue" className="block w-full bg-gray-200 border text-black border-gray-300 rounded px-4 py-2" placeholder="Describe the electricity issue" rows="4"></textarea>
           </div>
         )}
-        {/* {below is for water related complaints} */}
+      
         {complaintType === 'Water' && (
           <div className="mb-4">
             <label htmlFor="WaterIssue" className="block text-white font-mono mb-1">Water Issue:</label>
@@ -163,7 +162,7 @@ export default function Form() {
             </div>
           </div>
         )}
-        {/* {below is for roads related complaints} */}
+      
         {complaintType === 'Roads' && (
           <div>
             <div className="mb-4">
@@ -200,7 +199,7 @@ export default function Form() {
           </div>
 
         )}
-        {/* {below is for healthcare related complaints} */}
+     
         {complaintType === 'Healthcare' && (
           <div>
             <div className="mb-4">
@@ -249,7 +248,7 @@ export default function Form() {
 
         )}
 
-        {/* {below is for waste management related complaints} */}
+       
         {complaintType === 'Waste Management' && (
           <div>
             <div className="mb-4">
